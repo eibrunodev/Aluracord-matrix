@@ -2,6 +2,9 @@ import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
 import React from 'react';
 
+import {Delete} from '@mui/icons-material/Delete';
+
+
 import {useRouter} from 'next/router'; 
 
 
@@ -82,7 +85,7 @@ export default function PaginaInicial() {
             onSubmit={function (event) {
               event.preventDefault();
               console.log('submeteu ao form')
-              roteamento.push('/chat')
+              roteamento.push(`/chat?username=${username}`);
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -92,6 +95,7 @@ export default function PaginaInicial() {
             <Titulo tag="h2">Boas vindas de volta!</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
+              <svg data-testid="DeleteIcon" >oi</svg>
             </Text>
 
             <TextField
